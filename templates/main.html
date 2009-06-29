@@ -1,0 +1,44 @@
+{% load compressed %}
+{% load class_if_reverse %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>{% block title %}Title{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+    {% compressed_css 'all' %}
+    {% block head %}
+    {% endblock %}
+ </head>
+  <body class="rounded">
+    <div id="doc3" class="yui-t6">
+      <div id="hd">
+        <h1>CrowdSense Project Kit</h1>
+        <div id="navigation">
+          <ul id="primary-navigation">
+            <li{% class_if_reverse / active %}><a href="/">Main</a></li>
+          </ul>
+
+          <ul id="user-navigation">
+            {% if user.is_authenticated %}
+            <li><a href="{% url auth_password_change %}">password</a></li>
+            <li><a href="{% url user_signout %}">logout</a></li>
+            {% else %}
+            <li<a href="{% url user_signin %}">log in or sign up</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+
+      <div id="bd">
+        {% block body %} Body {% endblock %}
+      </div>
+
+      <div id="ft"><div id="yui-main">
+        <p><a href="/admin/">admin</a></p>
+      </div></div>
+
+    {% compressed_js 'all' %}
+    {% block extra_scripts %}{% endblock %}
+  </body>
+</html>
