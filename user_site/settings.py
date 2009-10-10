@@ -25,6 +25,8 @@ SECRET_KEY = '+*q3$z(d1@hi^p%645&636$n7r@=w!m)(z9@k9&9s9_7uh%a+s'
 
 MIDDLEWARE_CLASSES += ('muaccounts.middleware.MUAccountsMiddleware',)
 
+BUY_SITE_URL = 'http://example.com:8001/sub/'
+
 TEMPLATE_DIRS = (
     os.path.join(KIT_ROOT, 'templates/user_sites'),
 ) + TEMPLATE_DIRS
