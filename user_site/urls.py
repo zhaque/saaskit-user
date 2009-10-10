@@ -54,6 +54,7 @@ urlpatterns = patterns('',
     (r'^admin/', include('muaccounts.urls')),
     (r'^profiles/', include('saaskit.urls.profiles_urls')),
     (r'^notices/', include('notification.urls')),
+    (r'^subscription/', include('subscription.urls')),
 )
 
 # serve static files in debug mode
