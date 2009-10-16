@@ -58,7 +58,7 @@ urlpatterns = patterns('',
 )
 
 # serve static files in debug mode
-if settings.DEBUG:
+if settings.SERVE_MEDIA:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     )
