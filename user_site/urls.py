@@ -17,38 +17,19 @@ urlpatterns = patterns('',
 
     url(r'^admin/dashboard/$', views.notices, {
         'template': 'account/dashboard.html',
-        'extra_context': {
-            'buy_site_url': settings.BUY_SITE_URL,
-        }
     }, name='account_dashboard'),
-
-    url(r'^extend/users/$', simple.direct_to_template, {
-        'template': 'manage_users.html',
-    }),
 
     url(r'^extend/apps/$', simple.direct_to_template, {
         'template': 'manage_apps.html',
     }),
 
-    url(r'^extend/dashboard/$', simple.direct_to_template, {
-        'template': 'account_dashboard.html',
-    }),
-
-    url(r'^extend/profile/$', simple.direct_to_template, {
-        'template': 'account_profile.html',
-    }),
-
-    url(r'^extend/password/$', simple.direct_to_template, {
-        'template': 'account_password.html',
-    }),
-
     url(r'^extend/plans/$', simple.direct_to_template, {
         'template': 'account_plans.html',
-    }),
+    }, name='account_plans'),
 
     url(r'^extend/invoice/$', simple.direct_to_template, {
         'template': 'account_invoice.html',
-    }),
+    }, name='account_invoice'),
 
     (r'^accounts/', include('django_authopenid.urls')),
     (r'^admin/', include('muaccounts.urls')),
