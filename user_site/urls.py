@@ -33,7 +33,7 @@ urlpatterns = patterns('',
 
     (r'^accounts/', include('django_authopenid.urls')),
     (r'^admin/', include('muaccounts.urls')),
-    (r'^profiles/', include('saaskit.urls.profiles_urls')),
+    (r'^profiles/', include('saaskit_profile.urls')),
     (r'^notices/', include('notification.urls')),
     (r'^subscription/', include('subscription.urls')),
 )
