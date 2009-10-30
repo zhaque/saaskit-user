@@ -2,14 +2,20 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 from notification import views
 from django.views.generic import simple
+from django.views.generic.simple import direct_to_template
 handler404 = 'perfect404.views.page_not_found'
+
+from django_authopenid import views as oid_views
+from registration import views as reg_views
+
+from muaccounts.views.decorators import public
 
 urlpatterns = patterns('',
     url(r'^$', 'django.views.generic.simple.direct_to_template', {
        'template': 'index.html',
     }, name='notification_notices'),
 
-    url(r'^sorry/$', 'django.views.generic.simple.direct_to_template', {
+    url(r'^sorry/$', public(direct_to_template), {
         'template': 'account_nam.html'
     }, name='muaccounts_not_a_member'),
 
@@ -30,7 +36,19 @@ urlpatterns = patterns('',
     url(r'^extend/invoice/$', simple.direct_to_template, {
         'template': 'account_invoice.html',
     }, name='account_invoice'),
+    
+    url(r'^accounts/activate/(?P<activation_key>\w+)/$', 
+        'muaccounts.views.members.mu_activate', name='registration_activate'),
 
+    url(r'^accounts/register/$', public(oid_views.register), 
+        name='user_register'),
+    url(r'^accounts/signin/complete/$', public(oid_views.complete_signin), 
+        name='user_complete_signin'),
+    url(r'^accounts/signin/$', public(oid_views.signin), name='user_signin'),
+    url(r'^accounts/signup/complete/$',public(direct_to_template), 
+        {'template': 'registration/registration_complete.html'},
+        name='registration_complete'),
+    
     (r'^accounts/', include('django_authopenid.urls')),
     (r'^admin/', include('muaccounts.urls')),
     (r'^profiles/', include('saaskit_profile.urls')),
