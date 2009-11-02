@@ -11,15 +11,7 @@ from registration import views as reg_views
 
 from muaccounts.views.decorators import public
 from muaccount_content.forms import MuFlatpageAddForm, MuFlatpageChangeForm
-
-def mu_initial(func):
-    def wrapped(request, initial=None, *args, **kwargs):
-        if initial is None: initial = {}
-        initial['muaccount'] = request.muaccount.id
-        return func(request, initial=initial, *args, **kwargs)
-    
-    return wrapped
-
+from muaccounts.urls import mu_initial
 
 urlpatterns = patterns('',
     url(r'^$', 'django.views.generic.simple.direct_to_template', {
