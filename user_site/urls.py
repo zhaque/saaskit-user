@@ -28,10 +28,6 @@ urlpatterns = patterns('',
         'template': 'account/dashboard.html',
     }, name='account_dashboard'),
 
-    url(r'^extend/plans/$', simple.direct_to_template, {
-        'template': 'account_plans.html',
-    }, name='account_plans'),
-
     url(r'^extend/invoice/$', simple.direct_to_template, {
         'template': 'account_invoice.html',
     }, name='account_invoice'),
