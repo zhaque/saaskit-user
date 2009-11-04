@@ -9,6 +9,13 @@ ROOT_URLCONF = 'user_site.urls'
 
 MIDDLEWARE_CLASSES += ('muaccounts.middleware.MUAccountsMiddleware',)
 
-TEMPLATE_DIRS = (
-    os.path.join(KIT_ROOT, 'templates/user_sites'),
-) + TEMPLATE_DIRS
+#===============================================================================
+# TEMPLATE_DIRS = (
+#    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
+# ) + TEMPLATE_DIRS
+#===============================================================================
+TEMPLATE_DIRS = ()
+
+INSTALLED_APPS = (
+    'user_site',
+) + INSTALLED_APPS

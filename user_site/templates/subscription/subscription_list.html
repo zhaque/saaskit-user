@@ -1,0 +1,9 @@
+{% extends "account/base.html" %}
+{% load uni_form %}
+
+{% block title %}Plans{% endblock %} 
+{% block body %}
+    <h2>Plans</h2>
+    {% include "subscription/subscription_list_fragment.html" %}
+{% endblock %}
+
