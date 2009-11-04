@@ -48,7 +48,11 @@ urlpatterns = patterns('',
     (r'^admin/', include('muaccounts.urls')),
     (r'^profiles/', include('saaskit_profile.urls')),
     (r'^notices/', include('notification.urls')),
+    
+    url(r'^subscription/(?P<object_id>\d+)/$', 'subscription.views.subscription_detail', 
+     {'payment_method':'pro' if settings.PAYPAL_PRO else 'standard'}, name='subscription_detail'),
     (r'^subscription/', include('subscription.urls')),
+    
     (r'^tinymce/', include('tinymce.urls')),
     
     #Manage content
