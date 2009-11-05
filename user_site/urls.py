@@ -67,8 +67,6 @@ urlpatterns = patterns('',
          },
         name='frontendadmin_change'
     ),
-    
-    (r'^content/', include('frontendadmin.urls')),
 )
 
 #apply saaskit-core url mapping
