@@ -9,6 +9,7 @@ import frontendadmin.views
 from django_authopenid import views as oid_views
 from registration import views as reg_views
 
+from saaskit.urls import handler404, urlpatterns as saaskit_patterns
 from muaccounts.views.decorators import public
 from muaccount_content.forms import MuFlatpageAddForm, MuFlatpageChangeForm
 from muaccounts.urls import mu_initial
@@ -21,8 +22,6 @@ urlpatterns = patterns('',
     url(r'^sorry/$', public(direct_to_template), {
         'template': 'account_nam.html'
     }, name='muaccounts_not_a_member'),
-
-    url(r'^sso/$', 'sso.views.sso', name="sso"),
 
     url(r'^admin/dashboard/$', views.notices, {
         'template': 'account/dashboard.html',
@@ -44,15 +43,7 @@ urlpatterns = patterns('',
         {'template': 'registration/registration_complete.html'},
         name='registration_complete'),
     
-    (r'^accounts/', include('django_authopenid.urls')),
     (r'^admin/', include('muaccounts.urls')),
-    (r'^profiles/', include('saaskit_profile.urls')),
-    (r'^notices/', include('notification.urls')),
-    
-    url(r'^subscription/(?P<object_id>\d+)/$', 'subscription.views.subscription_detail', 
-     {'payment_method':'pro' if settings.PAYPAL_PRO else 'standard'}, name='subscription_detail'),
-    (r'^subscription/', include('subscription.urls')),
-    
     (r'^tinymce/', include('tinymce.urls')),
     
     #Manage content
@@ -80,8 +71,5 @@ urlpatterns = patterns('',
     (r'^content/', include('frontendadmin.urls')),
 )
 
-# serve static files in debug mode
-if settings.SERVE_MEDIA:
-    urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-    )
+#apply saaskit-core url mapping
+urlpatterns += saaskit_patterns
