@@ -39,6 +39,13 @@
             {% endfor %}
         </ul>
     {% endif %}
-
+    
+    {% with request.muaccount.owner.get_profile as profile %}
+    {% if profile.is_public %}
+    <h3>About Site Owner</h3>
+    {% include "profiles/profile_detail.html" %}
+    {% endif %}
+    {% endwith %}
+    
 {% endblock %}
 
