@@ -34,11 +34,12 @@ urlpatterns = patterns('',
     url(r'^accounts/activate/(?P<activation_key>\w+)/$', 
         'muaccounts.views.members.mu_activate', name='registration_activate'),
 
-    url(r'^accounts/register/$', public(oid_views.register), 
+    url(r'^accounts/register/$', 'muaccounts.views.members.mu_register', 
         name='user_register'),
     url(r'^accounts/signin/complete/$', public(oid_views.complete_signin), 
         name='user_complete_signin'),
     url(r'^accounts/signin/$', public(oid_views.signin), name='user_signin'),
+    
     url(r'^accounts/signup/complete/$',public(direct_to_template), 
         {'template': 'registration/registration_complete.html'},
         name='registration_complete'),
