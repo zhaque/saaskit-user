@@ -35,7 +35,7 @@ urlpatterns = patterns('',
                 lambda request, queryset: queryset.filter(user=request.user))),
         {'template_name': 'subscription/account_invoice.html',
          'template_object_name': 'transaction', 
-         'queryset': Transaction.objects.filter(event__exact='subscription payment')}, 
+         'queryset': Transaction.objects.filter(event__exact='subscription payment').select_related()}, 
          name='account_invoice'),
     
     url(r'^accounts/activate/(?P<activation_key>\w+)/$', 

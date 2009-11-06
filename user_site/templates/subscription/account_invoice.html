@@ -17,9 +17,9 @@
         {% for transaction in transaction_list %}
         <tr class="{% cycle row1,row2 %}">
           <td>{{ transaction.timestamp|date:_("DATETIME_FORMAT")}}</td>
-          <td>{{ transaction.pk }}</td>
+          <td>{{ transaction.ipn }}</td>
           <td>${{ transaction.amount }}</td>
-          <td>{{ transaction.event }}</td>
+          <td>{{ transaction.ipn.payment_status }}</td>
         </tr>
         {% endfor %}
      </tbody>
