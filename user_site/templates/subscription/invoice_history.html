@@ -1,6 +1,7 @@
 {% extends "account/base.html" %}
 {% block title %}Invoice History{% endblock %}
- 
+{% load i18n %}
+
 {% block body %}
   <h2>Invoice History</h2>
   {% if transaction_list %}
@@ -11,6 +12,7 @@
        <td>Receipt</td>
        <td>Amount</td>
        <td>Status</td>
+       <td>Details</td>
      </tr></thead>
      
      <tbody>
@@ -20,6 +22,7 @@
           <td>{{ transaction.ipn }}</td>
           <td>${{ transaction.amount }}</td>
           <td>{{ transaction.ipn.payment_status }}</td>
+          <td><a href="{% url invoice_detail %}">{% trans "Export as PDF" %}</a></td>
         </tr>
         {% endfor %}
      </tbody>

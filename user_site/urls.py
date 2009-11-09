@@ -3,16 +3,14 @@ from django.conf.urls.defaults import *
 from notification import views
 #from django.views.generic import simple
 from django.views.generic.simple import direct_to_template
-from django.views.generic.list_detail import object_list
-from django.contrib.auth.decorators import login_required
+#from django.views.generic.list_detail import object_list
+#from django.contrib.auth.decorators import login_required
 
 import frontendadmin.views
 from django_authopenid import views as oid_views
 #from registration import views as reg_views
-from subscription.models import Transaction
-#from paypal.standard.ipn.models import PayPalIPN
 
-from saaskit.urls import handler404, urlpatterns as saaskit_patterns, wrapped_queryset
+from saaskit.urls import handler404, urlpatterns as saaskit_patterns
 from muaccounts.views.decorators import public
 from muaccount_content.forms import MuFlatpageAddForm, MuFlatpageChangeForm
 from muaccounts.urls import mu_initial
@@ -30,14 +28,6 @@ urlpatterns = patterns('',
         'template': 'account/dashboard.html',
     }, name='account_dashboard'),
 
-    url(r'^admin/invoice/$', 
-        login_required(wrapped_queryset(object_list, 
-                lambda request, queryset: queryset.filter(user=request.user))),
-        {'template_name': 'subscription/account_invoice.html',
-         'template_object_name': 'transaction', 
-         'queryset': Transaction.objects.filter(event__exact='subscription payment').select_related()}, 
-         name='account_invoice'),
-    
     url(r'^accounts/activate/(?P<activation_key>\w+)/$', 
         'muaccounts.views.members.mu_activate', name='registration_activate'),
 
