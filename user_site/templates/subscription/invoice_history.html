@@ -22,7 +22,7 @@
           <td>{{ transaction.ipn }}</td>
           <td>${{ transaction.amount }}</td>
           <td>{{ transaction.ipn.payment_status }}</td>
-          <td><a href="{% url invoice_detail %}">{% trans "Export as PDF" %}</a></td>
+          <td><a href="{% url invoice_detail transaction.pk %}">{% trans "Export as PDF" %}</a></td>
         </tr>
         {% endfor %}
      </tbody>
