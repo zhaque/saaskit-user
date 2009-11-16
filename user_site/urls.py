@@ -23,7 +23,11 @@ urlpatterns = patterns('',
     url(r'^sorry/$', public(direct_to_template), {
         'template': 'account_nam.html'
     }, name='muaccounts_not_a_member'),
-
+    
+    url(r'^suspended/$', public(direct_to_template), {
+        'template': 'suspended.html'
+    }, name='muaccount_suspended'),
+    
     url(r'^admin/dashboard/$', views.notices, {
         'template': 'account/dashboard.html',
     }, name='account_dashboard'),
@@ -65,6 +69,8 @@ urlpatterns = patterns('',
          },
         name='frontendadmin_change'
     ),
+    
+    (r'^count/', include('django_counter.urls')),
 )
 
 #apply saaskit-core url mapping
