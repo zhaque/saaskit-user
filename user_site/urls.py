@@ -28,7 +28,7 @@ urlpatterns = patterns('',
         'template': 'suspended.html'
     }, name='muaccount_suspended'),
     
-    url(r'^admin/dashboard/$', views.notices, {
+    url(r'^account/dashboard/$', views.notices, {
         'template': 'account/dashboard.html',
     }, name='account_dashboard'),
 
@@ -45,11 +45,11 @@ urlpatterns = patterns('',
         {'template': 'registration/registration_complete.html'},
         name='registration_complete'),
     
-    (r'^admin/', include('muaccounts.urls')),
+    (r'^account/', include('muaccounts.urls')),
     (r'^tinymce/', include('tinymce.urls')),
     
     #Manage content
-    url(r'^admin/apps/$', 'muaccount_content.views.mu_listing', name='app_settings'),
+    url(r'^account/apps/$', 'muaccount_content.views.mu_listing', name='app_settings'),
     
     url(r'^content/add/(?P<app_label>muaccount_content)/(?P<model_name>muflatpage)/$', 
         mu_initial(frontendadmin.views.add),
