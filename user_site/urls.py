@@ -3,12 +3,8 @@ from django.conf.urls.defaults import *
 from notification import views
 #from django.views.generic import simple
 from django.views.generic.simple import direct_to_template
-#from django.views.generic.list_detail import object_list
-#from django.contrib.auth.decorators import login_required
 
 import frontendadmin.views
-from django_authopenid import views as oid_views
-#from registration import views as reg_views
 
 from saaskit.urls import handler404, urlpatterns as saaskit_patterns
 from muaccounts.views.decorators import public
@@ -28,28 +24,18 @@ urlpatterns = patterns('',
         'template': 'suspended.html'
     }, name='muaccount_suspended'),
     
-    url(r'^account/dashboard/$', views.notices, {
+    url(r'^admin/dashboard/$', views.notices, {
         'template': 'account/dashboard.html',
     }, name='account_dashboard'),
-
-    url(r'^accounts/activate/(?P<activation_key>\w+)/$', 
-        'muaccounts.views.members.mu_activate', name='registration_activate'),
-
-    url(r'^accounts/register/$', 'muaccounts.views.members.mu_register', 
-        name='user_register'),
-    url(r'^accounts/signin/complete/$', public(oid_views.complete_signin), 
-        name='user_complete_signin'),
-    url(r'^accounts/signin/$', public(oid_views.signin), name='user_signin'),
     
-    url(r'^accounts/signup/complete/$',public(direct_to_template), 
-        {'template': 'registration/registration_complete.html'},
-        name='registration_complete'),
+    url(r'^accounts/signin/$', 'user_site.views.signin', name='user_signin'),
+    url(r'^accounts/signout/$', 'user_site.views.signout', name='user_signout'),
     
-    (r'^account/', include('muaccounts.urls')),
+    (r'^admin/', include('muaccounts.urls')),
     (r'^tinymce/', include('tinymce.urls')),
     
     #Manage content
-    url(r'^account/apps/$', 'muaccount_content.views.mu_listing', name='app_settings'),
+    url(r'^admin/apps/$', 'muaccount_content.views.mu_listing', name='app_settings'),
     
     url(r'^content/add/(?P<app_label>muaccount_content)/(?P<model_name>muflatpage)/$', 
         mu_initial(frontendadmin.views.add),

@@ -24,10 +24,6 @@
                 <li><a href="{{ site.get_absolute_url }}">{{ site }}</a></li>
             {% endfor %}
         </ul>
-    {% else %}
-        {% if buy_site_url %}
-            <p>You don't have any sites, maybe, you should <a href="{% setting BUY_SITE_URL %}">create one</a>.</p>
-        {% endif %}
     {% endif %}
 
     {% member_of request.user as member_of %}
