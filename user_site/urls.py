@@ -16,10 +16,6 @@ urlpatterns = patterns('',
        'template': 'index.html',
     }, name='notification_notices'),
 
-    url(r'^sorry/$', public(direct_to_template), {
-        'template': 'account_nam.html'
-    }, name='muaccounts_not_a_member'),
-    
     url(r'^suspended/$', public(direct_to_template), {
         'template': 'suspended.html'
     }, name='muaccount_suspended'),

@@ -32,6 +32,7 @@ def signin(request, redirect_field_name=REDIRECT_FIELD_NAME):
                    urlquote_plus(request.get_host() + request.get_full_path())))
 
 @login_required
+@public
 def signout(request, redirect_field_name=REDIRECT_FIELD_NAME):
     """ log out then redirect to logout on main site """
     
@@ -44,7 +45,6 @@ def signout(request, redirect_field_name=REDIRECT_FIELD_NAME):
     data = request.GET.copy()
     data[redirect_field_name] = logout_url
     request.GET = data
-    
     response = sso(request)
     
     logout(request)
