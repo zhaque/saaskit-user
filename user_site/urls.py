@@ -24,9 +24,11 @@ urlpatterns = patterns('',
         'template': 'suspended.html'
     }, name='muaccount_suspended'),
     
-    url(r'^admin/dashboard/$', views.notices, {
-        'template': 'account/dashboard.html',
-    }, name='account_dashboard'),
+#===============================================================================
+#    url(r'^admin/dashboard/$', views.notices, {
+#        'template': 'account/dashboard.html',
+#    }, name='account_dashboard'),
+#===============================================================================
     
     url(r'^accounts/signin/$', 'user_site.views.signin', name='user_signin'),
     url(r'^accounts/signout/$', 'user_site.views.signout', name='user_signout'),
