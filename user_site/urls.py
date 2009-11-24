@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
-from notification import views
 #from django.views.generic import simple
 from django.views.generic.simple import direct_to_template
 
@@ -19,12 +18,6 @@ urlpatterns = patterns('',
     url(r'^suspended/$', public(direct_to_template), {
         'template': 'suspended.html'
     }, name='muaccount_suspended'),
-    
-#===============================================================================
-#    url(r'^admin/dashboard/$', views.notices, {
-#        'template': 'account/dashboard.html',
-#    }, name='account_dashboard'),
-#===============================================================================
     
     url(r'^accounts/signin/$', 'user_site.views.signin', name='user_signin'),
     url(r'^accounts/signout/$', 'user_site.views.signout', name='user_signout'),
