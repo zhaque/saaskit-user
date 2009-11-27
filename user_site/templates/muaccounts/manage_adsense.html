@@ -1,0 +1,22 @@
+{% extends "muaccounts/manage/base.html" %}
+{% load i18n frontendadmin_tags %}
+{% block title %}Adsense settings{% endblock %} 
+
+{% block content %}
+  <h2>{% trans "Manage Adsense" %}</h2>
+  <ul>
+    {% for adsense in adsense_list %}
+    <li>
+      <strong>{{ adsense.name }}</strong>
+      {% if adsense.muaccount %} 
+      | {% frontendadmin_change adsense 'change' %}
+      {% if not adsense.has_default %}
+        | {% frontendadmin_delete adsense %}
+      {% endif %}
+      {% else %}
+      | {% frontendadmin_change adsense 'customize' %}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

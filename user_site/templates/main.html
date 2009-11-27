@@ -1,4 +1,4 @@
-{% load i18n thumbnail muathemes muaccounts_tags settings class_if_reverse compressed%}
+{% load i18n thumbnail muathemes muaccounts_tags settings class_if_reverse compressed adsense %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
@@ -79,16 +79,8 @@
               {% endif %}
           </div></div>
           {% endif %} 
-          
-          {% if request.muaccount.adsense_code %}
-            {{ request.muaccount.adsense_code|safe }}
-          {% else %}
-            {% load adsense %}{% get_site_adsenses as adsenses %}
-            {% for adsense in adsenses %}
-              {{ adsense.code|safe }}
-            {% endfor %}
-          {% endif %}
-          
+
+          {% adsense request.muaccount 'side-banner-top' %}
           {% block sidebar %} {% endblock %}
          </div>
       </div>
