@@ -19,10 +19,17 @@ def signin(request, redirect_field_name=REDIRECT_FIELD_NAME):
     if request.user.is_authenticated():
         return HttpResponseRedirect(redirect_to)
     else:
-        sso_url = construct_main_site_url(getattr(settings, 'SSO_URL', '/sso/'), False)
-        return HttpResponseRedirect("%s?%s=%s" \
-                % (sso_url, redirect_field_name, 
-                   urlquote_plus(request.get_host() + request.get_full_path())))
+        sso_url = "%s?%s=%s" \
+                % (getattr(settings, 'SSO_URL', '/sso/'), 
+                   redirect_field_name, 
+                   urlquote_plus(request.get_host() + request.get_full_path()),
+                   )
+        
+        return HttpResponseRedirect("%s?%s=%s&muaccount=%d" \
+                % (construct_main_site_url(getattr(settings, 'LOGIN_URL', '/accounts/signin/'), False), 
+                   redirect_field_name, 
+                   urlquote_plus(sso_url),
+                   request.muaccount.pk))
 
 @login_required
 @public
