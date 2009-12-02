@@ -1,10 +1,10 @@
 {% extends "main.html" %}
-
+{% load i18n %}
 {% block title %}{{request.muaccount}}{% endblock %} 
 {% block body %}
   <div class="block">
     <div class="bd">
-      <h2>Account was suspended. Try again later</h2>
+      <h2>{% trans "Account was suspended. Try again later" %}</h2>
     </div>
   </div>
 {% endblock %}

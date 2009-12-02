@@ -1,1 +1,3 @@
-Anonymous account {{muaccount}} (#{{muaccount.id}}) has been claimed by {{user}} (#{{user.id}}).  Please check that claim.
+{% load i18n %}{% bocktrans with muaccount.id as muaccount_id and user.id as user_id%}
+Anonymous account {{ muaccount }} (#{{ muaccount_id }}) has been claimed by {{user}} (#{{ user_id }}).  Please check that claim.
+{% endblocktrans %}

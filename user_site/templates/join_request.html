@@ -3,14 +3,14 @@
 {% block title %}{% trans "Join request" %}{% endblock %} 
 
 {% block body %}
-<h2>Sorry, you are not a member of this site.</h2>
+<h2>{% trans "Sorry, you are not a member of this site." %}</h2>
 
 {% if join_request %}
 <h4>{% trans "Previous request state" %}:</h4>
 <p>{% trans "Created" %}: {{ join_request.created|date:_("DATETIME_FORMAT") }}</p>
 <p>{% trans "State" %}: {{ join_request.get_state_display }}</p>
-
 {% endif %}
+
 {% if form %}
   {% uni_form form form.helper %}
 {% endif %}

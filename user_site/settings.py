@@ -12,11 +12,6 @@ MIDDLEWARE_CLASSES += (
         'page_view_quotas.middleware.PageViewQuotasMiddleware',
 )
 
-#===============================================================================
-# TEMPLATE_DIRS = (
-#    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
-# ) + TEMPLATE_DIRS
-#===============================================================================
 TEMPLATE_DIRS = ()
 
 INSTALLED_APPS = (

@@ -1,1 +1,1 @@
-[{{site}}] {{muaccount}} claimed by {{user}}
+{% load i18n %}{% blocktrans %}[{{site}}] {{muaccount}} claimed by {{user}}{% endblocktrans %}
