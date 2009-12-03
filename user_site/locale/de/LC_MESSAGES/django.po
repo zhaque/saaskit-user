@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 10:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/join_request.html:3
+msgid "Join request"
+msgstr ""
+
+#: templates/join_request.html:6
+msgid "Sorry, you are not a member of this site."
+msgstr ""
+
+#: templates/join_request.html:9
+msgid "Previous request state"
+msgstr ""
+
+#: templates/join_request.html:10
+msgid "Created"
+msgstr ""
+
+#: templates/join_request.html:10
+msgid "DATETIME_FORMAT"
+msgstr ""
+
+#: templates/join_request.html:11
+msgid "State"
+msgstr ""
+
+#: templates/main.html:27
+msgid "Manage"
+msgstr ""
+
+#: templates/main.html:29
+msgid "Account"
+msgstr ""
+
+#: templates/main.html:30
+msgid "Sign-out"
+msgstr ""
+
+#: templates/main.html:36
+msgid "Log in or Sign up"
+msgstr ""
+
+#: templates/main.html:45
+msgid "Main"
+msgstr ""
+
+#: templates/main.html:55
+msgid "clear"
+msgstr ""
+
+#: templates/main.html:68
+msgid "This account has no owner"
+msgstr ""
+
+#: templates/main.html:70
+msgid "If you feel you should manage this account, please"
+msgstr ""
+
+#: templates/main.html:71
+msgid "claim it"
+msgstr ""
+
+#: templates/main.html:82
+msgid "About CrowdSense"
+msgstr ""
+
+#: templates/main.html:83
+msgid "Support"
+msgstr ""
+
+#: templates/main.html:84
+msgid "Contact us"
+msgstr ""
+
+#: templates/main.html:88
+msgid "Privacy & Copyright"
+msgstr ""
+
+#: templates/suspended.html:7
+msgid "Account was suspended. Try again later"
+msgstr ""
+
+#: templates/muaccounts/claim_sent.html:6
+msgid "Request sent"
+msgstr ""
+
+#: templates/muaccounts/claim_sent.html:7
+msgid "Your claim for this account has been successfully sent."
+msgstr ""
+
+#: templates/muaccounts/manage_adsense.html:3
+msgid "Adsense settings"
+msgstr ""
+
+#: templates/muaccounts/manage_adsense.html:6
+msgid "Manage Adsense"
+msgstr ""
+
+#: templates/muaccounts/manage_adsense.html:12
+#: templates/muaccounts/manage_content.html:13
+msgid "change"
+msgstr ""
+
+#: templates/muaccounts/manage_adsense.html:14
+#: templates/muaccounts/manage_content.html:15
+msgid "delete"
+msgstr ""
+
+#: templates/muaccounts/manage_adsense.html:17
+#: templates/muaccounts/manage_content.html:18
+msgid "customize"
+msgstr ""
+
+#: templates/muaccounts/manage_content.html:3
+msgid "Application settings"
+msgstr ""
+
+#: templates/muaccounts/manage_content.html:6
+msgid "Manage Content"
+msgstr ""
+
+#: templates/muaccounts/manage/base.html:3
+#: templates/muaccounts/manage/form.html:3
+msgid "Manage your site"
+msgstr ""
+
+#: templates/muaccounts/manage/base.html:16
+msgid "General Settings"
+msgstr ""
+
+#: templates/muaccounts/manage/base.html:17
+msgid "Colors & Styles"
+msgstr ""
+
+#: templates/muaccounts/manage/base.html:18
+msgid "Users"
+msgstr ""
+
+#: templates/muaccounts/manage/base.html:19
+msgid "Advanced Settings"
+msgstr ""
+
+#: templates/muaccounts/manage/base.html:20
+msgid "Ad Settings"
+msgstr ""
+
+#: templates/muaccounts/manage/base.html:21
+msgid "Applications Settings"
+msgstr ""
