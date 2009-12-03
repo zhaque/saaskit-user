@@ -10,6 +10,7 @@ ROOT_URLCONF = 'user_site.urls'
 MIDDLEWARE_CLASSES += (
         'muaccounts.middleware.MUAccountsMiddleware',
         'page_view_quotas.middleware.PageViewQuotasMiddleware',
+        'muaccounts.middleware.LocaleMiddleware',
 )
 
 TEMPLATE_DIRS = ()
