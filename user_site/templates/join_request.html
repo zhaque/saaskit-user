@@ -3,10 +3,16 @@
 {% block title %}{% trans "Join request" %}{% endblock %} 
 
 {% block body %}
-<h2>{% trans "Sorry, you are not a member of this site." %}</h2>
+{% if request.user.is_authenticated %}
+<p>{% trans "You are not a member of this site." %}</p>
+{% else %}
+<p>{% trans "This site is not public. Site owner might invite members." %}</p>
+<p>{% trans "If you have an account, please" %} <a href="{% url user_signin %}">{% trans "login" %}</a></p>
+{% endif %}
+<p>{% trans "You able to request an invitation with form below." %}</p>
 
 {% if join_request %}
-<h4>{% trans "Previous request state" %}:</h4>
+<h4>{% trans "You was requested an invitation" %}:</h4>
 <p>{% trans "Created" %}: {{ join_request.created|date:_("DATETIME_FORMAT") }}</p>
 <p>{% trans "State" %}: {{ join_request.get_state_display }}</p>
 {% endif %}
