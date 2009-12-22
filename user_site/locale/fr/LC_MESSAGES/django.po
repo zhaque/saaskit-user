@@ -77,7 +77,7 @@ msgid "claim it"
 msgstr ""
 
 #: templates/main.html:82
-msgid "About CrowdSense"
+msgid "About SaaS kit"
 msgstr ""
 
 #: templates/main.html:83
