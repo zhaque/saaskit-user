@@ -18,7 +18,7 @@ from muaccount_adsense.forms import AdsenseBlockChangeForm
 urlpatterns = patterns('',
     url(r'^$', 'django.views.generic.simple.direct_to_template', {
        'template': 'index.html',
-    }, name='notification_notices'),
+    }, name='home'),
 
     url(r'^suspended/$', public(direct_to_template), {
         'template': 'suspended.html'
