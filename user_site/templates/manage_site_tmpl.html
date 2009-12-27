@@ -1,0 +1,42 @@
+{% extends "base_tmpl.html" %}
+{% load i18n thumbnail muathemes muaccounts_tags settings class_if_reverse compressed adsense %}
+
+{% block extra_style %}
+    {% compressed_css request.muaccount.theme.color_scheme %}
+    {{ request.muaccount.webmaster_tools_code|safe }}
+{% endblock %}
+
+{% block logo %} 
+  {% if request.muaccount.logo %}
+    <img src="{% thumbnail request.muaccount.logo 128x64 %}" id="site-logo">
+  {% else %}
+    <div class="saaskit-content"><h3>{{request.muaccount}}</h3></div>
+  {% endif %}
+{% endblock %}
+
+{% block nav-rhs %}
+    <li><a href="{% main_site_url account_dashboard %}">{% trans "My account" %}</a></li>	
+{% endblock %}
+         
+{% block nav %}
+<ul>
+  <li{% class_if_reverse muaccounts_manage_general saaskit-nav-active %}><a href="{% url muaccounts_manage_general %}">{% trans "General Settings" %}</a></li>
+  <li{% class_if_reverse muaccounts_manage_styles saaskit-nav-active %}><a href="{% url muaccounts_manage_styles %}">{% trans "Colors & Styles" %}</a></li>
+  <li{% class_if_reverse muaccounts_member_list saaskit-nav-active %}><a href="{% url muaccounts_member_list %}">{% trans "Users" %}</a></li>
+  <li{% class_if_reverse muaccounts_manage_advanced saaskit-nav-active %}><a href="{% url muaccounts_manage_advanced %}">{% trans "Advanced Settings" %}</a></li>
+  <li{% class_if_reverse manage_adsense saaskit-nav-active %}><a href="{% url manage_adsense %}">{% trans "Ad Settings" %}</a></li>
+  <li{% class_if_reverse app_settings saaskit-nav-active %}><a href="{% url app_settings %}">{% trans "Applications Settings" %}</a></li>
+<ul>
+{% endblock %}
+
+        
+{% block footer %}  
+  <p>
+    Copyright User_Site Company</a>
+  </p>
+{% endblock %}
+
+{% block extra_js %}
+  {% compressed_js 'all' %}
+  {{ request.muaccount.analytics_code|safe }}
+{% endblock %}
