@@ -16,7 +16,9 @@
   {% endif %}
 {% endblock %}
 
-
+{% block nav-rhs %}
+    <li><a href="{% main_site_url account_dashboard %}">{% trans "My account" %}</a></li>	
+{% endblock %}
          
         
 {% block footer %}  
