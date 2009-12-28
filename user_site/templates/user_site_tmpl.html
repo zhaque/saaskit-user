@@ -1,5 +1,6 @@
 {% extends "base_tmpl.html" %}
-{% load i18n thumbnail muathemes muaccounts_tags settings class_if_reverse compressed adsense %}
+{% load i18n thumbnail muathemes class_if_reverse compressed adsense %}
+{% block language %}{% endblock %}
 
 {% block extra_style %}
     {% compressed_css request.muaccount.theme.color_scheme %}
@@ -14,9 +15,10 @@
   {% endif %}
 {% endblock %}
 
-{% block nav-rhs %}
-    <li><a href="{% main_site_url account_dashboard %}">{% trans "My account" %}</a></li>	
+{% block tagline %}
+  <h3>{{request.muaccount.tag_line}}</h3>
 {% endblock %}
+
          
 {% block footer %}  
   <p>

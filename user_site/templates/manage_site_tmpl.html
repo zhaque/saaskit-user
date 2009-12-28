@@ -1,22 +1,11 @@
 {% extends "base_tmpl.html" %}
-{% load i18n thumbnail muathemes muaccounts_tags settings class_if_reverse compressed adsense %}
+{% load i18n class_if_reverse adsense %}
+{% block logo %}{% endblock %}{% block language %}{% endblock %}
 
-{% block extra_style %}
-    {% compressed_css request.muaccount.theme.color_scheme %}
-    {{ request.muaccount.webmaster_tools_code|safe }}
+{% block sitename %}
+<div class="saaskit-content"><h3>{{request.muaccount}}</h3></div> 				
 {% endblock %}
 
-{% block logo %} 
-  {% if request.muaccount.logo %}
-    <img src="{% thumbnail request.muaccount.logo 128x64 %}" id="site-logo">
-  {% else %}
-    <div class="saaskit-content"><h3>{{request.muaccount}}</h3></div>
-  {% endif %}
-{% endblock %}
-
-{% block nav-rhs %}
-    <li><a href="{% main_site_url account_dashboard %}">{% trans "My account" %}</a></li>	
-{% endblock %}
          
 {% block nav %}
 <ul>
@@ -29,14 +18,8 @@
 <ul>
 {% endblock %}
 
-        
-{% block footer %}  
-  <p>
-    Copyright User_Site Company</a>
-  </p>
-{% endblock %}
 
 {% block extra_js %}
-  {% compressed_js 'all' %}
+{{block.super}}
   {{ request.muaccount.analytics_code|safe }}
 {% endblock %}
