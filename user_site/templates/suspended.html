@@ -1,7 +1,7 @@
-{% extends "main.html" %}
+{% extends "user_site_tmpl.html" %}
 {% load i18n %}
 {% block title %}{{request.muaccount}}{% endblock %} 
-{% block body %}
+{% block content %}
   <div class="block">
     <div class="bd">
       <h2>{% trans "Account was suspended. Try again later" %}</h2>
