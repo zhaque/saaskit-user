@@ -1,15 +1,19 @@
 {% extends "manage_site_tmpl.html" %}
 {% load i18n frontendadmin_tags %}
-{% block title %}{% trans "Adsense settings" %}{% endblock %} 
+
+{% block head_title %}{{block.super}} : {% trans "Adsense settings" %}{% endblock %} 
 
 {% block content %}
-  <h2>{% trans "Manage Adsense" %}</h2>
+
+<div class="saaskit-block">
+  <h3>{% trans "Adsense settings" %}</h3>
+    <div class="saaskit-content">
   <ul>
     {% for adsense in adsense_list %}
     <li>
       <strong>{{ adsense.name }}</strong>
       {% if adsense.muaccount %} 
-      | {% frontendadmin_change adsense _('change') %}
+      | {% frontendadmin_change adsense _('configure') %}
       {% if not adsense.has_default %}
         | {% frontendadmin_delete adsense _('delete') %}
       {% endif %}
@@ -19,4 +23,6 @@
     </li>
     {% endfor %}
   </ul>
+</div>
+</div>
 {% endblock %}

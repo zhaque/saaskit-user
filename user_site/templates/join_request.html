@@ -1,8 +1,10 @@
 {% extends "user_site_tmpl.html" %}
 {% load i18n uni_form_tags %}
-{% block title %}{% trans "Join request" %}{% endblock %} 
 
-{% block body %}
+{% block head_title %}{{request.muaccount}} : {% trans "Join request" %}{% endblock %} 
+
+
+{% block content %}
 {% if request.user.is_authenticated %}
 <p>{% trans "You are not a member of this site." %}</p>
 {% else %}

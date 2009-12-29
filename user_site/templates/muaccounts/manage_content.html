@@ -1,11 +1,15 @@
 {% extends "manage_site_tmpl.html" %}
 {% load i18n frontendadmin_tags %}
-{% block title %}{% trans "Application settings" %}{% endblock %} 
+
+{% block head_title %}{{block.super}} : {% trans "Site Content" %}{% endblock %} 
 
 {% block content %}
-  <h2>{% trans "Manage Content" %}</h2>
-  {% frontendadmin_add flatpage_list %}
-  <ul>
+
+<div class="saaskit-block">
+  <h3>{% trans "Manage content" %}</h3>
+    <div class="saaskit-content">
+	  {% frontendadmin_add flatpage_list %}
+      <ul>
     {% for flatpage in flatpage_list %}
     <li>
       <a href="{{ flatpage.url }}">{{ flatpage.title }}</a>
@@ -20,4 +24,6 @@
     </li>
     {% endfor %}
   </ul>
+</div>
+</div>
 {% endblock %}
