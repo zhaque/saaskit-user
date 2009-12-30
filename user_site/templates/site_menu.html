@@ -1,13 +1,8 @@
 {% load i18n uni_form_tags %}
 
-{% block content %}
-<div class="saaskit-block">
-  <h3>{% trans "Edit profile" %}</h3>
-    <div class="saaskit-content">
 	    <p> 
 		<a href="{% url muaccounts_manage_general %}">{% trans "General" %}</a> | 
-        <a href ="{% url muaccounts_manage_general %}">{% trans "Color & Styles" %}</a> |
+        <a href ="{% url muaccounts_manage_styles %}">{% trans "Color & Styles" %}</a> |
         <a href ="{% url muaccounts_manage_advanced %}">{% trans "Advanced settings" %}</a>
 		</p>
         <hr/>
-{% endblock %}
