@@ -15,9 +15,12 @@
   <li{% class_if_reverse muaccounts_manage_general saaskit-nav-active %}><a href="{% url muaccounts_manage_general %}">{% trans "General Settings" %}</a></li>
   <li{% class_if_reverse muaccounts_manage_styles saaskit-nav-active %}><a href="{% url muaccounts_manage_styles %}">{% trans "Colors & Styles" %}</a></li>
   <li{% class_if_reverse muaccounts_member_list saaskit-nav-active %}><a href="{% url muaccounts_member_list %}">{% trans "Users" %}</a></li>
+  {% if request.user.subscription %}		
   <li{% class_if_reverse muaccounts_manage_advanced saaskit-nav-active %}><a href="{% url muaccounts_manage_advanced %}">{% trans "Advanced Settings" %}</a></li>
   <li{% class_if_reverse manage_adsense saaskit-nav-active %}><a href="{% url manage_adsense %}">{% trans "Ad setup" %}</a></li>
   <li{% class_if_reverse app_settings saaskit-nav-active %}><a href="{% url app_settings %}">{% trans "Site content" %}</a></li>
+  {% endif %}
+
 <ul>
 {% endblock %}
 
