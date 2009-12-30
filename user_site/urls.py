@@ -20,6 +20,10 @@ urlpatterns = patterns('',
        'template': 'index.html',
     }, name='user_index'),
 
+    url(r'^$', 'django.views.generic.simple.direct_to_template', {
+       'template': 'index.html',
+    }, name='notification_notices'),
+
     url(r'^suspended/$', public(direct_to_template), {
         'template': 'suspended.html'
     }, name='muaccount_suspended'),

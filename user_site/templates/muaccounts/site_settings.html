@@ -1,10 +1,9 @@
 {% extends "manage_site_tmpl.html" %}
 {% load i18n uni_form_tags %}
 
-{% block head_title %}{{block.super}} : {% trans "Manage site" %} : {{title}}{% endblock %} 
+{% block head_title %}{{block.super}} : {% trans "Manage site" %} : {% trans "Settings" %} : {{title}}{% endblock %} 
 
 {% block content %}
-
 
 <div class="saaskit-block">
   <h3>{{title}}</h3>
@@ -12,7 +11,7 @@
 	    <p> 
 		<a href="{% url muaccounts_manage_general %}">{% trans "General" %}</a> | 
         <a href ="{% url muaccounts_manage_styles %}">{% trans "Color & Styles" %}</a> |
-        <a href ="{% url muaccounts_manage_advanced %}">{% trans "Advanced settings" %}</a>
+        <a href ="{% url muaccounts_manage_advanced %}">{% trans "Advanced" %}</a>
 		</p>
         <hr/>
       <form action="" method="POST" class="uniForm">
