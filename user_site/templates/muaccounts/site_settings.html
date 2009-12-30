@@ -1,25 +1,31 @@
 {% extends "manage_site_tmpl.html" %}
 {% load i18n uni_form_tags %}
 
-{% block head_title %}{{block.super}} : {% trans "Manage site" %}{% endblock %} 
+{% block head_title %}{{block.super}} : {% trans "Manage site" %} : {{title}}{% endblock %} 
 
 {% block content %}
 
 
 <div class="saaskit-block">
-  <h3>{% trans "Create profile" %}</h3>
+  <h3>{{title}}</h3>
     <div class="saaskit-content">
+	    <p> 
+		<a href="{% url muaccounts_manage_general %}">{% trans "General" %}</a> | 
+        <a href ="{% url muaccounts_manage_styles %}">{% trans "Color & Styles" %}</a> |
+        <a href ="{% url muaccounts_manage_advanced %}">{% trans "Advanced settings" %}</a>
+		</p>
+        <hr/>
       <form action="" method="POST" class="uniForm">
         <fieldset class="inlineLabels">
         <legend>* {% trans "Required fields" %}</legend>
-            {% uni_form form form.helper %}
+        {{form|as_uni_form}}
         </fieldset>
 		<div class="buttonHolder">
 		  <button class="button" type="submit">
-		    <img src="{{ MEDIA_URL }}saaskit/img/icons/tick.png" alt="Save" />{% trans "Save" %}
+		    <img src="{{ MEDIA_URL }}saaskit/img/icons/tick.png" alt={% trans "Save" %} />{% trans "Save" %}
 		  </button>        
 	      <button class="button" type="reset">
-	        <img src="{{ MEDIA_URL }}saaskit/img/icons/cross.png" alt="Cancel"/>{% trans "Cancel" %}
+	        <img src="{{ MEDIA_URL }}saaskit/img/icons/cross.png" alt={% trans "Cancel" %} />{% trans "Cancel" %}
      	  </button>
     	  <div class="clear"></div>
     	</div>
