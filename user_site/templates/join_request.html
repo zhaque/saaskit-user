@@ -9,7 +9,7 @@
 <p>{% trans "You are not a member of this site." %}</p>
 {% else %}
 <p>{% trans "This site is not public. Site owner might invite members." %}</p>
-<p>{% trans "If you have an account, please" %} <a href="{% url user_signin %}">{% trans "login" %}</a></p>
+<p>{% trans "If you have an account, please" %} <a href="{% url auth_login %}">{% trans "login" %}</a></p>
 {% endif %}
 <p>{% trans "You able to request an invitation with form below." %}</p>
 

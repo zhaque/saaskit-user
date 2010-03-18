@@ -28,8 +28,8 @@ urlpatterns = patterns('',
         'template': 'suspended.html'
     }, name='muaccount_suspended'),
     
-    url(r'^accounts/signin/$', 'user_site.views.signin', name='user_signin'),
-    url(r'^accounts/signout/$', 'user_site.views.signout', name='user_signout'),
+    url(r'^accounts/login/$', 'user_site.views.signin', name='auth_login'),
+    url(r'^accounts/logout/$', 'user_site.views.signout', name='auth_logout'),
     
     (r'^admin/', include('muaccounts.urls')),
     (r'^tinymce/', include('tinymce.urls')),

@@ -26,7 +26,7 @@ def signin(request, redirect_field_name=REDIRECT_FIELD_NAME):
                    )
         
         return HttpResponseRedirect("%s?%s=%s&muaccount=%d" \
-                % (construct_main_site_url(getattr(settings, 'LOGIN_URL', '/accounts/signin/'), False), 
+                % (construct_main_site_url(getattr(settings, 'LOGIN_URL', '/accounts/login/'), False), 
                    redirect_field_name, 
                    urlquote_plus(sso_url),
                    request.muaccount.pk))
@@ -38,7 +38,7 @@ def signout(request, redirect_field_name=REDIRECT_FIELD_NAME):
     
     redirect_to = request.REQUEST.get(redirect_field_name, None)
     logout_url = "%s?%s=%s" \
-                % (construct_main_site_url(getattr(settings, 'LOGOUT_URL', '/accounts/signout/'), False), 
+                % (construct_main_site_url(getattr(settings, 'LOGOUT_URL', '/accounts/logout/'), False), 
                    redirect_field_name, 
                    urlquote_plus(request.build_absolute_uri(redirect_to)))
     
